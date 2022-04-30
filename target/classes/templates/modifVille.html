@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modification d'une ville</title>
+    <link rel="stylesheet" th:href="@{/style/modifVille.css}">
+
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <div class="title">
+                Villes Françaises
+            </div>
+            <div class="redirect">
+                <a href="home" class="redirectLinkHome">Accueil</a>
+            </div>
+        </div>
+        <div class="contentContainer">
+            <div class="deleteFormContainer">
+                <form method="post" action="deleteVille" th:object="${deleteForm}">
+                    <input type="text" id="codeCommuneDel" th:field="*{codeCommune}" hidden>
+                    <input type="submit" value="Supprimer la ville">
+                </form>
+            </div>
+            <div class="formContainer">
+                <form method="post" action="modifVille" th:object="${villeForm}">
+                    <div class="formLabel">
+                        <label for="code">Code Commune INSEE</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="code" name="code" th:value="${code}" th:field="*{code}" readonly>
+                    </div>
+                    <div class="formLabel">
+                        <label for="nom">Nom Commune</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="nom" name="nom" th:field="*{nom}" required>
+                    </div>
+                    <div class="formLabel">
+                        <label for="codePostal">Code Postal</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="codePostal" name="codePostal" th:field="*{codePostal}" required>
+                    </div>
+                    <div class="formLabel">
+                        <label for="libelle">Libellé acheminement</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="libelle" name="libelle" th:field="*{libelle}" required>
+                    </div>
+                    <div class="formLabel">
+                        <label for="ligne5">Ligne 5</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="ligne5" name="ligne5" th:field="*{ligne5}" required>
+                    </div>
+                    <div class="formLabel">
+                        <label for="latitude">Latitude</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="latitude" name="latitude" th:field="*{latitude}" required>
+                    </div>
+                    <div class="formLabel">
+                        <label for="longitude">Longitude</label>
+                    </div>
+                    <div class="formInput">
+                        <input type="text" id="longitude" name="longitude" th:field="*{longitude}" required>
+                    </div>
+                    <div class="formSubmit">
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script th:inline="javascript">
+    var code = [[${code}]];
+    var nom = [[${ville.nom}]];
+    var codePostal = [[${ville.codePostal}]];
+    var libelle = [[${ville.libelle}]];
+    var ligne5 = [[${ville.ligne5}]];
+    var latitude = [[${ville.latitude}]];
+    var longitude = [[${ville.longitude}]];
+
+</script>
+<script th:inline="javascript" th:src="@{/js/modifVille.js}"></script>
+</html>

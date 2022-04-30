@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>villes</title>
+    <link rel="stylesheet" th:href="@{/style/villes.css}">
+
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <div class="title">
+                Villes Françaises
+            </div>
+            <div class="redirect">
+                <a href="home" class="redirectLinkHome">Accueil</a>
+            </div>
+        </div>
+        <div class="villesTable">
+            <div th:each="ville, index : *{villes}">
+                <div th:id="${'page'+ (index.index + 1)}">
+                    <div class="navigationButtons">
+                        <button class="button" th:onclick="|nextPage('${index.index}')|">Page suivante</button>
+                        <button class="button" th:onclick="|prevPage('${index.index}')|">Page précédente</button>
+                        <form method="get" action="nouvelleVille">
+                            <input type="submit" value="Ajouter une ville">
+                        </form>
+                    </div>
+                    <table style="width: 100%">
+                        <thead>
+                            <tr class="tabTitle" th:text="${'Les villes de France - page '+ (index.index + 1)}" style="text-align: center">
+                            <tr>
+                                <th>Code commune INSEE</th>
+                                <th>Nom commune</th>
+                                <th>Code postal</th>
+                                <th>Libellé acheminement</th>
+                                <th>Ligne 5</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="ville, i : *{villes[__${index.index}__]}">
+                                <td th:id="|codeCommune${index.index},${i.index}|"
+                                    th:value="*{villes[__${index.index}__][__${i.index}__].code}"
+                                        th:text="*{villes[__${index.index}__][__${i.index}__].code}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].nom}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].codePostal}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].libelle}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].ligne5}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].latitude}"></td>
+                                <td th:text="*{villes[__${index.index}__][__${i.index}__].longitude}"></td>
+                                <td>
+                                    <form method="get" action="modifVille" th:object="${modifForm}">
+                                        <input type="text" th:id="|code${index.index},${i.index}|" th:field="*{code}" hidden>
+                                        <input th:onclick="|attributeCode(${index.index},${i.index})|"
+                                               type="submit" value="Modifier">
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <tr class="navigationButtons">
+                        <td><button class="next" th:onclick="|nextPage('${index.index}')|">Page Suivante</button></td>
+                        <td><button class="previous" th:onclick="|prevPage('${index.index}')|">Page Précédente</button></td>
+                    </tr>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script th:inline="javascript">
+    var nbVillesParPage = [[${nbVillesParPages}]];
+    var nbPages = [[${nbPages}]];
+</script>
+<script th:inline="javascript" th:src="@{/js/villes.js}"></script>
+</html>

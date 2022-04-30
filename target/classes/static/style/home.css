@@ -1,0 +1,108 @@
+:root {
+    --first-color: rgba(255, 255, 255, 1);
+    --sec-color: rgba(34, 86, 140, 1);
+    --third-color: rgba(233, 146, 15, 1);
+    --fourth-color: rgba(192, 170, 197, 1);
+    --fifth-color: rgba(249, 247, 249, 1);
+    --black-color: black;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+    color: var(--first-color);
+    align-items: center;
+    background-color: var(--sec-color);
+    border-bottom: 10px solid var(--fourth-color);
+    height: 13vh;
+    width: 100vw;
+}
+
+.title {
+    font-size: 64px;
+    -webkit-text-stroke: 1px var(--black-color);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    color: darkkhaki;
+}
+
+.redirectLink {
+    margin-right: 3vw;
+    font-size: 32px;
+    text-decoration: underline;
+    text-decoration-color: var(--third-color);
+    text-underline-offset: 7px;
+    color: darkkhaki;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: available;
+    margin-top: 10px;
+}
+
+.formContainer {
+    width: 60vw;
+    box-shadow: inset 0 0 0 10px var(--sec-color);
+    background-color: var(--fifth-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 24px;
+    color: var(--sec-color);
+    /*border: 3px aqua solid;*/
+}
+
+.formTitle {
+    text-transform: uppercase;
+    font-size: 36px;
+    color: var(--sec-color);
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.formInput {
+    border: 5px solid var(--sec-color);
+    padding: 10px 5px;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.formSubmit {
+    border: 5px solid var(--fifth-color);
+    padding: 10px 5px;
+    border-radius: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    text-align: center;
+}

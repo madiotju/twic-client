@@ -1,0 +1,49 @@
+:root {
+    --first-color: rgba(255, 255, 255, 1);
+    --sec-color: rgba(34, 86, 140, 1);
+    --third-color: rgba(233, 146, 15, 1);
+    --fourth-color: rgba(192, 170, 197, 1);
+    --fifth-color: rgba(249, 247, 249, 1);
+    --black-color: black;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+    color: var(--first-color);
+    align-items: center;
+    background-color: var(--sec-color);
+    border-bottom: 10px solid var(--fourth-color);
+    height: 13vh;
+    width: 100vw;
+}
+
+.title {
+    font-size: 64px;
+    -webkit-text-stroke: 1px var(--black-color);
+    left: 50%;
+    transform: translateX(-90%);
+    color: darkkhaki;
+}
+
+.redirectLinkHome {
+    margin-right: 3vw;
+    font-size: 32px;
+    text-decoration: underline;
+    text-decoration-color: var(--third-color);
+    text-underline-offset: 7px;
+    color: darkkhaki;
+}

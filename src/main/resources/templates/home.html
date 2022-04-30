@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/style/home.css}">
+</head>
+<body>
+<div class="mainContainer">
+    <div class="header">
+        <div class="title">
+            Villes Françaises
+        </div>
+        <div class="redirect">
+            <a href="villes" class="redirectLink">Voir les villes</a>
+        </div>
+    </div>
+    <div class="contentContainer">
+        <div class="formContainer">
+            <div class="formTitle">
+                Choisissez les deux villes :
+            </div>
+            <div class="form">
+                <form id="villeDistanceForm" name="villeDistanceForm" method="post" action="home" th:object="${villeDistanceForm}">
+                    <div class="formInput">
+                        <label for="ville1selection">Ville 1 :</label>
+                        <select id="ville1selection" name="ville1" th:field="*{ville1name}"></select>
+                    </div>
+                    <div class="formInput">
+                        <label for="ville2selection">Ville 2 :</label>
+                        <select id="ville2selection" name="ville2" th:field="*{ville2name}"></select>
+                    </div>
+                    <div class="formSubmit">
+                        <input type="submit"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script th:inline="javascript">
+    var alterVariable = [[${villes}]];
+</script>
+<script th:inline="javascript" th:src="@{/js/home.js}"></script>
+</html>
